@@ -1,0 +1,35 @@
+{
+  "name": "unicode-trivia",
+  "version": "0.1.0",
+  "description": "",
+  "author": "Chookeun Moon <fallroot@gmail.com> (https://fallroot.dev/)",
+  "keywords": [
+    "unicode"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --mode production",
+    "test": "jest --coverage --watch"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "jest": "^24.9.0",
+    "standard": "^14.0.2",
+    "webpack": "^4.39.2"
+  },
+  "jest": {
+    "testMatch": [
+      "**/test/*.js"
+    ]
+  },
+  "standard": {
+    "env": {
+      "jest": true
+    },
+    "parser": "babel-eslint"
+  }
+}
