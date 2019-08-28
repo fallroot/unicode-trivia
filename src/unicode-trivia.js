@@ -17,6 +17,10 @@ function toFlag (code) {
   return Array.from(code).map(toRis).join('')
 }
 
+function toMoonPhase (step) {
+  return String.fromCodePoint(0x1F311 + step)
+}
+
 function toRis (str) {
   if (typeof str !== 'string') return ''
 
@@ -31,5 +35,6 @@ export {
   toClock,
   toCp,
   toFlag,
+  toMoonPhase,
   toRis
 }

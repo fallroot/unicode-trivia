@@ -1,4 +1,4 @@
-import { toClock, toCp, toFlag, toRis } from '../src/unicode-trivia.js'
+import { toClock, toCp, toFlag, toMoonPhase, toRis } from '../src/unicode-trivia.js'
 
 test('`toCp` is a shortcut for `String.prototype.codePointAt`', () => {
   const str = 'hello'
@@ -34,4 +34,10 @@ test('`toClock` should return emoji clock face from `Date`', () => {
 test('`toClock` should return emoji clock thirty face when minutes are greater than or equal to 30', () => {
   expect(toClock(new Date('2008-09-05 01:30:00'))).toBe('🕜')
   expect(toClock(new Date('2008-09-05 00:45:00'))).toBe('🕧')
+})
+
+test('`toMoonPhase` should return emoji moon phase from step number between 0 and 7', () => {
+  expect(toMoonPhase(0)).toBe('🌑')
+  expect(toMoonPhase(4)).toBe('🌕')
+  expect(toMoonPhase(7)).toBe('🌘')
 })
