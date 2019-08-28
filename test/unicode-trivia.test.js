@@ -1,4 +1,4 @@
-import { toCp, toFlag, toRis } from '../src/unicode-trivia.js'
+import { toClock, toCp, toFlag, toRis } from '../src/unicode-trivia.js'
 
 test('`toCp` is a shortcut for `String.prototype.codePointAt`', () => {
   const str = 'hello'
@@ -22,4 +22,16 @@ test('`toFlag` should return emoji flag sequences from valid region codes', () =
   expect(toFlag('US')).toBe('🇺🇸')
   expect(toFlag('eu')).toBe('🇪🇺')
   expect(toFlag('UN')).toBe('🇺🇳')
+})
+
+test('`toClock` should return emoji clock face from `Date`', () => {
+  expect(toClock(new Date('2008-09-05 01:00:00'))).toBe('🕐')
+  expect(toClock(new Date('2008-09-05 13:00:00'))).toBe('🕐')
+  expect(toClock(new Date('2008-09-05 00:00:00'))).toBe('🕛')
+  expect(toClock(new Date('2008-09-05 24:00:00'))).toBe('🕛')
+})
+
+test('`toClock` should return emoji clock thirty face when minutes are greater than or equal to 30', () => {
+  expect(toClock(new Date('2008-09-05 01:30:00'))).toBe('🕜')
+  expect(toClock(new Date('2008-09-05 00:45:00'))).toBe('🕧')
 })

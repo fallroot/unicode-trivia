@@ -1,3 +1,14 @@
+function toClock (date) {
+  const hours = date.getHours() % 12
+  const half = date.getMinutes() >= 30
+
+  if (hours === 0) {
+    return String.fromCodePoint(half ? 0x1F567 : 0x1F55B)
+  } else {
+    return String.fromCodePoint((half ? 0x1F55C : 0x1F550) + hours - 1)
+  }
+}
+
 function toCp (str) {
   return str.codePointAt(0)
 }
@@ -17,6 +28,7 @@ function toRis (str) {
 }
 
 export {
+  toClock,
   toCp,
   toFlag,
   toRis
